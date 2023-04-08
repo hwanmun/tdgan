@@ -17,7 +17,7 @@ Both of generator and discriminator uses deep neural net model where each layer 
 ### Evaluation
 Rossmann store sales dataset was proposed on kaggle originally for the regression task on the Sales field. Therefore, to make a generator which can help to synthesize extra training data for this regression task, it is natural to evaluate the generator model by the relative performace on this regression task compared to the training with real data. For the regression metric, I use Root Mean Square Percentage Error (RMSPE), which is calcualted as:
 
-$$RMSPE=\sqrt{\frac{1}{\text{# of non-zero }x_i} \sum_{i, \ x_i\ne 0} \left(\frac{\hat{x}_i - x_i}{x_i}\right)^2 }$$
+$$RMSPE=\sqrt{\frac{1}{\text{Num of non-zero }x_i} \sum_{i, \ x_i\ne 0} \left(\frac{\hat{x}_i - x_i}{x_i}\right)^2 }$$
 
 For simple and quick evaluation, I use the simple linear regression model. As the final metric, ratio of the synthetic-data-trained model's RMSPE to the real-data-trained model's RMSPE will be reported. The closer the ratio to 1, the better generator (much larger than 1 if the generator is poor).
 
